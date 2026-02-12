@@ -1,171 +1,92 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --bg-primary: #0b0e11;
+  --bg-secondary: #161a1e;
+  --bg-tertiary: #1e2329;
+  --bg-hover: #2b3139;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --text-primary: #eaecef;
+  --text-secondary: #b7bdc6;
+  --text-muted: #5e6673;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --border-color: #2b3139;
+  --border-hover: #474d57;
+
+  --green: #0ecb81;
+  --green-bg: rgba(14, 203, 129, 0.1);
+  --red: #f6465d;
+  --red-bg: rgba(246, 70, 93, 0.1);
+
+  --blue: #3861fb;
+  --yellow: #f0b90b;
+
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-
-a:hover {
-  color: #535bf2;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow: hidden;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-@keyframes pulse {
-  0% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.5;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-/* Trading Section */
-.trade-controls {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.trade-input {
-  flex: 1;
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid var(--secondary);
-  color: white;
-  padding: 0.75rem;
-  border-radius: 8px;
-  margin: 0;
-}
-
-.btn-buy {
-  flex: 1;
-  background: var(--primary);
-  border: none;
-  font-weight: 700;
-  color: black;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: opacity 0.2s;
-}
-
-.btn-sell {
-  flex: 1;
-  background: var(--danger);
-  border: none;
-  font-weight: 700;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: opacity 0.2s;
-}
-
-.btn-buy:hover,
-.btn-sell:hover {
-  opacity: 0.9;
-}
-
-/* History Section */
-.history-card {
-  grid-column: span 2;
-  overflow-y: auto;
-  max-height: 400px;
-}
-
-.trade-list {
+/* App Layout */
+.app {
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
 }
 
-.trade-item {
+/* Header */
+.app-header {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 1.5rem;
+  height: 60px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
-  border-left: 3px solid transparent;
+  z-index: 100;
 }
 
-.trade-item.buy {
-  border-left-color: var(--primary);
-}
-
-.trade-item.sell {
-  border-left-color: var(--danger);
-}
-
-.trade-info {
+.header-left,
+.header-right {
   display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--yellow);
+}
+
+.market-info {
+  display: flex;
+  align-items: center;
   gap: 1rem;
 }
 
-.trade-time {
-  color: var(--text-muted);
-  font-size: 0.8rem;
+.pair {
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-
-button:hover {
-  border-color: #646cff;
-}
-
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-
-  a:hover {
-    color: #747bff;
-  }
-
-  button {
-    background-color: #f9f9f9;
-  }
+.price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--green);
 }
